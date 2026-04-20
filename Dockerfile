@@ -6,6 +6,9 @@ WORKDIR /app
 # Copia os arquivos do projeto para o servidor
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+
+RUN chmod +x mvnw
+
 # Baixa as dependências do Maven
 RUN ./mvnw dependency:go-offline
 
@@ -16,4 +19,4 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests
 
 # Roda a aplicação
-CMD ["java", "-jar", "target/api-cobrancas.jar"]
+CMD ["java", "-jar", "target/api-cobrancas-0.0.1-SNAPSHOT.jar"]
