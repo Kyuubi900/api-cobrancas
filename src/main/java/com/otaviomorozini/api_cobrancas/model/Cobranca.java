@@ -12,6 +12,7 @@ public class Cobranca {
     private Long id;
     private BigDecimal valor;
     private LocalDate dataVencimento;
+    @Enumerated(EnumType.STRING)
     private StatusCobranca status;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
@@ -45,10 +46,10 @@ public class Cobranca {
         this.cliente = cliente;
     }
 
-    public String getStatus() {
+    public StatusCobranca getStatus() {
         return status;
     }
-    public void setStatus(String status) {
+    public void setStatus(StatusCobranca status) {
         this.status = status;
     }
 }

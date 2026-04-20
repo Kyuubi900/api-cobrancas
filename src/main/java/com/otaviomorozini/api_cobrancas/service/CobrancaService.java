@@ -25,7 +25,7 @@ public class CobrancaService {
         Cobranca cobranca = new Cobranca();
         cobranca.setValor(dto.valor());
         cobranca.setDataVencimento(dto.dataVencimento());
-        cobranca.setStatus(dto.status().name());
+        cobranca.setStatus(dto.status());
         cobranca.setCliente(cliente); // Faz o vínculo!
 
         return cobrancaRepository.save(cobranca);
