@@ -12,7 +12,7 @@ public class Cobranca {
     private Long id;
     private BigDecimal valor;
     private LocalDate dataVencimento;
-    private String status;
+    private StatusCobranca status;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
