@@ -1,5 +1,6 @@
 package com.otaviomorozini.api_cobrancas.model;
 
+import com.otaviomorozini.api_cobrancas.dto.ClienteRequestDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -42,4 +43,18 @@ public class Cliente {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+
+    public void atualizarInformacoes(ClienteRequestDTO dto) {
+        if (dto.nome() != null && !dto.nome().trim().isEmpty()) {
+            this.nome = dto.nome();
+        }
+        if (dto.email() != null && !dto.email().trim().isEmpty()) {
+            this.email = dto.email();
+        }
+        if (dto.cpf() != null && !dto.cpf().trim().isEmpty()) {
+            this.cpf = dto.cpf();
+        }
+    }
+
 }

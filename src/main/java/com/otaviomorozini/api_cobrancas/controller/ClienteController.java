@@ -6,6 +6,10 @@ import com.otaviomorozini.api_cobrancas.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -38,5 +42,30 @@ public class ClienteController {
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> ListarClientePorId(@PathVariable Long id){
         return ResponseEntity.of(clienteService.buscaPorId(id));
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody @Valid ClienteRequestDTO dto) {
+        var cliente = clienteService.buscaPorId(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+        cliente.atualizarInformacoes(dto);
+
+        clienteService.salvar(cliente);
+
+        return ResponseEntity.ok(cliente);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        if (clienteService.buscaPorId(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        clienteService.deletar(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
