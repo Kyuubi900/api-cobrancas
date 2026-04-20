@@ -20,7 +20,7 @@ public class CobrancaController {
         return ResponseEntity.ok().body(cobrancaService.gerar(cobranca));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Cobranca>> listarTodasCobrancas(){
         return ResponseEntity.ok().body(cobrancaService.listaTodos());
     }

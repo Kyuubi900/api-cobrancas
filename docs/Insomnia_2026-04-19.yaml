@@ -1,0 +1,137 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Api Cobrancas
+meta:
+  id: wrk_bbb618acddb743d5bd0d367ea255a4a1
+  created: 1776648957327
+  modified: 1776648995679
+  description: ""
+collection:
+  - url: http://localhost:8080/clientes
+    name: Criar Cliente
+    meta:
+      id: req_59aa53dec00e4bfca0302a0b0fc79b35
+      created: 1776648969265
+      modified: 1776649019153
+      isPrivate: false
+      description: ""
+      sortKey: -1776648969265
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "nome": "Otavio Morozini",
+          "email": "otavio@email.com",
+          "cpf": "12345678900"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/clientes
+    name: Listar Clientes
+    meta:
+      id: req_249cc113addb4aad967609502eda3122
+      created: 1776649066651
+      modified: 1776649083800
+      isPrivate: false
+      description: ""
+      sortKey: -1776649066651
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/cobrancas
+    name: Criar Cobrança
+    meta:
+      id: req_cf6f79bd0c704223aea716545a82e13f
+      created: 1776649382296
+      modified: 1776649404179
+      isPrivate: false
+      description: ""
+      sortKey: -1776649382296
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "valor": 150.75,
+          "dataVencimento": "2026-05-20",
+          "status": "PENDENTE",
+          "cliente": {
+            "id": 1
+          }
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:8080/cobrancas
+    name: Listar Cobranças
+    meta:
+      id: req_fb16cae65f05401aa678dc7c8cbcb19d
+      created: 1776649537687
+      modified: 1776649552448
+      isPrivate: false
+      description: ""
+      sortKey: -1776649537687
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/12.5.0
+        description: ""
+        disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_e6fcfc54305e2bbe37f9bf2abaf3b1c0bea8535a
+    created: 1776648957330
+    modified: 1776648957330
+environments:
+  name: Base Environment
+  meta:
+    id: env_e6fcfc54305e2bbe37f9bf2abaf3b1c0bea8535a
+    created: 1776648957328
+    modified: 1776648957328
+    isPrivate: false

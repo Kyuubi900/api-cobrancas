@@ -20,7 +20,7 @@ public class ClienteController {
         return ResponseEntity.ok().body(clienteService.salvar(cliente));
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Cliente>> listarTodosClientes(){
         return ResponseEntity.ok().body(clienteService.listarTodos());
     }
